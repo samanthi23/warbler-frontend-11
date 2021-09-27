@@ -40,7 +40,7 @@ class AuthForm extends Component {
       removeError
     } = this.props;
 
-    history.listen(() => {
+    history.listen(() => { // listens to any change in the route
       removeError();
     });
 
@@ -50,6 +50,7 @@ class AuthForm extends Component {
           <div className="col-md-6">
             <form onSubmit={this.handleSubmit}>
               <h2>{heading}</h2>
+              // display error message here 
               {errors.message && (
                 <div className="alert alert-danger">{errors.message}</div>
               )}

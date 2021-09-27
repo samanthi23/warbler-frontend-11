@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import Homepage from "../components/Homepage";
 import AuthForm from "../components/AuthForm";
 import { authUser } from "../store/actions/auth";
-import { removeError } from "../store/actions/errors";
+import { removeError } from "../store/actions/errors"; // removeError
 
 const Main = props => {
-  const { authUser, errors, removeError } = props;
+  const { authUser, errors, removeError } = props; // errors, removeError // can only pass it in as a prop if passed to MapDispatchtoProps
   return (
     <div className="container">
       <Switch>
@@ -51,11 +51,12 @@ const Main = props => {
 };
 
 function mapStateToProps(state) {
-  return {
+  return { 
+    // currentUser: state.currentUser, 
     errors: state.errors
   };
 }
 
 export default withRouter(
-  connect(mapStateToProps, { authUser, removeError })(Main)
+  connect(mapStateToProps, { authUser, removeError })(Main) // removeError
 );

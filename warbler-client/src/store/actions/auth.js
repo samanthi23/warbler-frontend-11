@@ -18,10 +18,12 @@ export function authUser(type, userData) {
           localStorage.setItem("jwtToken", token);
           dispatch(setCurrentUser(user));
           dispatch(removeError());
+          // show error or remove any existing errors
+          // inside .then or .catch
           resolve(); // indicate that the API call succeeded
         })
         .catch(err => {
-          dispatch(addError(err.message));
+          dispatch(addError(err.message)); // error.message
           reject(); // indicate the API call failed
         });
     });
